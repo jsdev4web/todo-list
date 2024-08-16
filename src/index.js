@@ -1,5 +1,4 @@
-
-
+import { format } from "date-fns"
 
 let list = []
 
@@ -36,6 +35,7 @@ class Todolist {
             this.todos.shift()
         }
     }
+
 
 
     let myList = new Todolist("Work", "do work", 12/11/1999, 3)
