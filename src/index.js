@@ -1,4 +1,6 @@
 
+
+
 let list = []
 
 class Todolist {
@@ -33,10 +35,12 @@ class Todolist {
             console.log("this removes last first todo")
             this.todos.shift()
         }
-
     }
 
+
     let myList = new Todolist("Work", "do work", 12/11/1999, 3)
+
+
 
     console.log(myList.todos.push("dog", "cat"))
     myList.addTodo("lion")
