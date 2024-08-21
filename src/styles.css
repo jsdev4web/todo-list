@@ -1,4 +1,41 @@
 
-#test {
-    background-color: red;
+html {
+    background-color: violet;
+    height: 100%
 }
+
+.projectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2em;
+    row-gap: 2em;
+}
+
+.buttonMain {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.projectDiv {
+    border: 3px solid black;
+    background-color: darkgray;
+    width: fit-content;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 800;
+}
+
+.projectDiv:hover{
+    background-color: black;
+}
+
+button {
+    margin-right: .5em;
+    
+}
+
+button:hover {
+    background-color: yellow;
+}
+
+
