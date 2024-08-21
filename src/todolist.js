@@ -1,5 +1,5 @@
 import { format, par } from "date-fns"
-import { loadMain } from "./doms";
+import { loadMain, loadMainTwo } from "./doms";
 
 
 export class Todolist {
@@ -169,7 +169,8 @@ export class Todolist {
 
                     //ERROR this works but I added objects doubled */
                     document.body.innerText = ""
-                    loadMain()
+                    //**I need to remove all existing objects prior to this */
+                    loadMainTwo()
                     
                     
                 })
