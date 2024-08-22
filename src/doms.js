@@ -1,11 +1,19 @@
 import { Todolist } from "./todolist.js";
 import "./styles.css";
 import { add } from "lodash";
-import { localData } from "./storeData.js"
 
 //main list to store objects
 let list = []
 
+//REMOVE LOCAL STORAGE ITEM BY KEYNAME
+//localStorage.removeItem('value')
+
+//ADDS LOCAL STORAGE IN STRING
+//let newitem = JSON.stringify(localStorage.getItem('value'))
+let newitem = JSON.parse(localStorage.getItem('value'))
+//Here I pushed it back to the list!!!!! HOLY SMOKES
+list.push(newitem)
+console.log(newitem)
 
 //loads the doms
 export function loadMain(){
@@ -41,7 +49,11 @@ export function loadMain(){
             list.push(item)
             console.log(list)
             loadCard()
-            
+            localStorage.setItem('value', JSON.stringify(item))
+            //console.log(localStorage.getItem('value'))
+            //let newitem = JSON.stringify(localStorage.getItem('value'))
+            //console.log(newitem)
+            //list.push(localStorage.getItem("value"))
         })
 
     // I Init the list here objects here
@@ -330,4 +342,3 @@ function loadCard(){
 }
 
 
-localData()
