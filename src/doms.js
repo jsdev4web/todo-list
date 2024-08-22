@@ -1,6 +1,7 @@
 import { Todolist } from "./todolist.js";
 import "./styles.css";
 import { add } from "lodash";
+import { localData } from "./storeData.js"
 
 //main list to store objects
 let list = []
@@ -313,7 +314,6 @@ function loadCard(){
             item.singleView()
         });
 
-
         let removeCard = document.createElement("button");
         //removeCard.setAttribute("class", "todobtn");
         removeCard.innerText = "Remove Card"
@@ -330,4 +330,4 @@ function loadCard(){
 }
 
 
-
+localData()
