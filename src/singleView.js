@@ -1,11 +1,23 @@
 
+import { loadMainTwo, sendlist } from "./doms"
 
-export function singleView(){
+function updateList(){
+    
+}
+
+export function singleItem(){
+
+        let cardValues = sendlist()
+        console.log(cardValues)
+
 
         let allViewBtn = document.querySelectorAll(".viewCard")
             console.log(allViewBtn)
 
-            allViewBtn.forEach((item) => {
+            allViewBtn.forEach((item, index) => {
+
+                //refers to the 2 card divs buttons
+                //console.log(item)
     
                 item.addEventListener("click", (e) =>{
                     //item = e.target.currentTarget.item
@@ -48,7 +60,7 @@ export function singleView(){
                 let inputTitle = document.createElement("input");
                 inputTitle.setAttribute("type", "text");
                 inputTitle.setAttribute("name", "title");
-                inputTitle.setAttribute("value", this.title)
+                inputTitle.setAttribute("value", cardValues[index].title)
                 titleDiv.appendChild(inputTitle)
 
 
@@ -62,7 +74,7 @@ export function singleView(){
                 let inputDescription = document.createElement("input");
                 inputDescription.setAttribute("type", "text");
                 inputDescription.setAttribute("name", "description");
-                inputDescription.setAttribute("value", this.description)
+                inputDescription.setAttribute("value", cardValues[index].description)
                 descriptionDiv.appendChild(inputDescription)
 
                 //create date div & add main
@@ -75,7 +87,7 @@ export function singleView(){
                 let inputDuedate = document.createElement("input");
                 inputDuedate.setAttribute("type", "text");
                 inputDuedate.setAttribute("name", "duedate");
-                inputDuedate.setAttribute("value", this.duedate)
+                inputDuedate.setAttribute("value", cardValues[index].duedate)
                 duedateDiv.appendChild(inputDuedate)
 
                 //create pri div and add to main
@@ -88,7 +100,7 @@ export function singleView(){
                 let inputPriority = document.createElement("input");
                 inputPriority.setAttribute("type", "text");
                 inputPriority.setAttribute("name", "priority");
-                inputPriority.setAttribute("value", this.priority)
+                inputPriority.setAttribute("value", cardValues[index].priority)
                 priorityDiv.appendChild(inputPriority)
 
                 //create submit button and add to form below
@@ -103,21 +115,21 @@ export function singleView(){
                 submitBtn.addEventListener("click", (e) => {
                     e.preventDefault()
                    
-                    this.title = myForm.title.value
-                    this.description = myForm.description.value
-                    this.duedate = myForm.duedate.value
-                    this.priority = myForm.priority.value
+                    cardValues[index].title = myForm.title.value
+                    cardValues[index].description = myForm.description.value
+                    cardValues[index].duedate = myForm.duedate.value
+                    cardValues[index].priority = myForm.priority.value
 
-                    console.log(this.title)
+                    console.log(cardValues[index].title)
                     console.log(inputTitle)
 
-                    console.log(this.description)
+                    console.log(cardValues[index].description)
                     console.log(inputDescription)
 
-                    console.log(this.duedate)
+                    console.log(cardValues[index].duedate)
                     console.log(inputDuedate)
 
-                    console.log(this.priority)
+                    console.log(cardValues[index].priority)
                     console.log(myForm.priority.value)
 
 

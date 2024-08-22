@@ -5,20 +5,32 @@ import { add } from "lodash";
 //main list to store objects
 let list = []
 
+export function sendlist(){
+    let myList = list
+    return myList
+}
+
+export function updatedList(){
+    let updateList = list
+    return updateList
+}
+
+
+
 //REMOVE LOCAL STORAGE ITEM BY KEYNAME
 //localStorage.removeItem('value')
 
 //ADDS LOCAL STORAGE IN STRING
 //let newitem = JSON.stringify(localStorage.getItem('value'))
-let newitem = JSON.parse(localStorage.getItem('value'))
+//let newitem = JSON.parse(localStorage.getItem('value'))
 //Here I pushed it back to the list!!!!! HOLY SMOKES
-list.push(newitem)
-console.log(newitem)
+//list.push(newitem)
+//console.log(newitem)
 
 //loads the doms
 export function loadMain(){
     console.log("This comes from the DOMs")
-
+    sendlist()
     //main container holder
     let container = document.createElement("div");
     container.setAttribute("id", "container");
@@ -37,18 +49,26 @@ export function loadMain(){
         newObjectBtn.addEventListener("click", (e) => {
             e.stopPropagation()
             console.log("Add New Card Below")
+            
             //whatever is 1st on list use it to trigger new list
             //let li = list[0]
             //li.addList()
 
+            console.log(list)
             let title = prompt("Title?");
             let description = prompt("Description?");
             let priority = prompt("Priority");
             
             let item = new Todolist(title, description, priority)
+            console.log(item)
+            
+            
             list.push(item)
             console.log(list)
+
             loadCard()
+        
+            
             localStorage.setItem('value', JSON.stringify(item))
             //console.log(localStorage.getItem('value'))
             //let newitem = JSON.stringify(localStorage.getItem('value'))
@@ -71,7 +91,7 @@ export function loadMain(){
 
     //Loop thru list
     list.forEach((item, index) => {
-        console.log(item)
+        //console.log(item)
         let projectDiv = document.createElement("div");
         projectDiv.setAttribute("class", "projectDiv");
 
@@ -162,6 +182,8 @@ export function loadMain(){
 
 
 export function loadMainTwo(){
+    sendlist()
+
     console.log("This comes from the DOMs")
 
     //main container holder
@@ -239,6 +261,7 @@ export function loadMainTwo(){
 
         singleTodoBtn.addEventListener("click", (e) => {
             e.stopPropagation()
+            
             item.singleView()
         });
 
@@ -257,7 +280,7 @@ export function loadMainTwo(){
 
         });
 
-        removeLastListObj()
+        item.removeLastListObj()
     })
 }
 
@@ -269,8 +292,9 @@ function loadCard(){
     projectDiv.setAttribute("class", "projectDiv");
 
     console.log(list)
-    let item = list.pop()
-    console.log(item)
+    //this is used to print card with last load list
+    let item = list[list.length - 1]
+    //console.log(item)
 
     let html = "";
 
@@ -323,6 +347,7 @@ function loadCard(){
 
         singleTodoBtn.addEventListener("click", (e) => {
             e.stopPropagation()
+            
             item.singleView()
         });
 

@@ -1,6 +1,6 @@
 import { format, par } from "date-fns"
-import { loadMain, loadMainTwo, loadCard } from "./doms";
-import { singleView } from "./singleView";
+import { loadMain, loadMainTwo, loadCard, updatedList} from "./doms";
+import { singleItem } from "./singleView";
 
 let list = []
 
@@ -51,7 +51,7 @@ export class Todolist {
         singleView(){
             console.log("shows a single card")
             //let btn = document.getElementById("singleCard");
-            singleView()
+            singleItem()
         
         }
 
@@ -60,7 +60,7 @@ export class Todolist {
             let allDivs = document.querySelectorAll(".projectDiv")
                 //console.log(allDivs)
                 allDivs.forEach((div, index) => {
-                    removeCard.addEventListener("click", (e) => {
+                    div.addEventListener("click", (e) => {
                         //e.stopPropagation()
                         //console.log(index)
                         if (index > -1) {
