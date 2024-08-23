@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "main": "./dist/main.js",
+  "homepage": "https://jsdev4web.github.io/todo-list",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsdev4web/todo-list.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d -dist"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +21,7 @@
   "devDependencies": {
     "css-loader": "^7.1.2",
     "date-fns": "^3.6.0",
+    "gh-pages": "^6.1.1",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.0",
     "local-storage": "^2.0.0",
